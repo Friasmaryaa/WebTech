@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+    <title>Crud-Application</title>
+
+
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet");
+* {
+  box-sizing: border-box;
+}
+
+header,
+section {
+  overflow-x: hidden;
+}
+header .navbar-brand {
+    padding-left: 1rem;
+  }
+body {
+    Sniglet-font: "Sniglet", cursive;
+    Rubik: "Rubik", cursive;
+    Patua: "Patua One", cursive;
+    Lobster: "lobster", cursive;
+    light-black: #2e2c2caf;
+    background-image: linear-gradient(to bottom, #48c6ef 0%, #6f86d6 100%); 
+  
+}
+
+header a {
+  font-family: var(--Sniglet-font);
+  font-size: 0.9em;
+  color: whitesmoke;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header .nav-item:last-child {
+  padding-right: 10.5em;
+}
+
+header .nav-item {
+  padding: 0.9em;
+}
+
+header .navbar-brand {
+  padding-left: 8rem;
+}
+
+header .nav-link:hover {
+  color: black;
+}
+
+header .row .col-md-7 {
+  padding: 22vmin 1vmin;
+  padding-bottom: 35vmin;
+}
+
+header .row .col-md-5 {
+  padding: 4.2vmin 1vmin;
+}
+
+header .row .col-md-5 img {
+  width: 90%;
+}
+
+header {
+  background: #ff512f;
+  /* fallback for old browsers */
+  background: var(--bggradient);
+}
+
+header .container2 .col-md-7 {
+  font-family: "Rubik", sans-serif;
+}
+
+header .container2 .col-md-7 h6 {
+  padding: 1vmin;
+  letter-spacing: 4px;
+}
+
+header .container2 .col-md-7 h1 {
+  font-size: 8.5vmin;
+  font-weight: bold;
+  padding: 0.1em 0em;
+}
+
+header .container2 .col-md-7 p {
+  padding: 1vmin 5vmin;
+}
+ 
+        .container1{
+            max-width: 1100px;
+            font-family: sans-serif;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: rgb(88, 132, 22);
+            border: 2px solid black;
+
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table{
+            width: 100%;
+            border-spacing: 0px;
+        }
+        th{
+            text-align: left;
+        }
+        table td:focus{
+             background-color:  rgb(179, 93, 215);
+        }
+        td:nth-child(3){
+            width: 400px;
+        }
+        td:last-child{
+            text-align: right;
+        }
+        table th,
+        table td{
+            padding: 15px 0px;
+            border-bottom: 1px solid #cacaca;
+            outline: none;
+        }
+
+        
+        .container{
+          max-width: 520px;
+          margin: auto;
+          margin-top: 50px;
+          padding: 20px;
+          font-family: sans-serif;
+          background-image: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);
+          border-radius: 20px;
+          border: 2px solid #cbcbcb;
+      }
+      h1{
+          margin-bottom: 30px;
+      }
+      input,
+      textarea{
+          width: calc(100% - 20px);
+          display: block;
+          padding: 6px;
+          font-size: 20px;
+          margin-top: 5px;
+          margin-bottom: 15px;
+          outline: none;
+      }
+      textarea{
+          height: 100px;
+      }
+
+      button{
+        display: inline-block;
+        padding: 15px 24px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-size: 11px;
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+      }
+      .container, button {
+        justify-content: center;
+        text-align: center;
+      }
+    </style>
+<body>
+    <header>
+        <div class="container2-fluid p-0">
+          <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">
+              <i class="fas fa-book-reader fa-2x mx-3"></i>Books</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <div class="mr-auto"></div>
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">HOME
+                    <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">RANGES</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">PRICE</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <div class="dropdown">
+                    <a href="crud.html" class="nav-link">CRUD TABLE</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="f">CONTACT US</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">ABOUT</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="form">
+            <label>Name</label>
+            <input type="text" name="Name" id="name">
+            <label>Address</label>
+            <input type="address" name="Address" id="address">
+            <label>Phone</label>
+            <input type="phone" name="Phone" id="phone">
+            <label>Message</label>
+            <textarea></textarea>
+            <button style="background-color: rgb(69, 195, 69);">Submit</button>
+        </div>
+    </div>
+
+    
+<!-- add firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-database-compat.js"></script>
+
+<script>
+    const firebaseConfig = {
+        databaseURL: "https://fir-crud-3a931-default-rtdb.firebaseio.com/"
+    }
+    firebase.initializeApp(firebaseConfig)
+    // here connection is created with database
+    const database = firebase.database()
+
+    // run function on click submit btn
+    const submit = document.querySelector('button')
+    submit.onclick = () => sendData()
+
+    // create a function to send data
+    function sendData(){
+        var name = document.querySelectorAll('input')[0]
+        var address = document.querySelectorAll('input')[1]
+        var phone = document.querySelectorAll('input')[2]
+        var message = document.querySelector('textarea')
+
+        alert("Data Inserted");
+
+ 
+        // set path where data will store
+        var listRef = database.ref('messages/')
+        // but we need firebase generated unique id's to show list data so
+        // push() will generate unique id
+        var newRef = listRef.push()
+        // now set data in db on given path
+        newRef.set({
+            // now send our data
+            'name': name.value,
+            'address': address.value,
+            'phone': phone.value,
+            'message': message.value
+        })
+    }
+
+
+</script>
+</body>
+
+<body>
+
+<!-- add firebase CDN -->
+
+<script>
+
+const dataContainer = document.querySelector('tbody')
+
+// give complete path to fetch data as given during sending
+var fetchedData = database.ref('messages/')
+fetchedData.on('value', (snapshot) => {
+    var data = snapshot.val()
+    // now set data in table
+    var htmlData = ''
+    for(var key in data){
+        var value = data[key]
+        htmlData += `
+            <tr>
+                <td>${value.name}</td>
+                <td>${value.address}</td>
+                <td>${value.phone}</td>
+                <td>${value.message}</td>
+                <td>
+                    <button style="background-color: orange" onclick="readyForUpdate('${key}', this)">Update</button>
+                    <button style="background-color: red" onclick="removeMess('${key}')">Delete</button>
+                </td>
+            </tr>
+        `;
+    }
+    // we use unique id's as reference to delete and update data
+    dataContainer.innerHTML = htmlData
+})
+
+// remove message function
+function removeMess(uniqueId){
+    database.ref('messages/' + uniqueId).remove()
+    // this realtime remove will delete data without any loading
+    // as data is updated, it refetch and rerender in html automatically
+    alert("Data Removed");
+}
+
+// update function 
+function readyForUpdate(uniqueId, elem){
+    // lets ready for update
+    // it will get all the td of the tr in which btn in clicked
+    var siblingTd = elem.parentElement.parentElement.getElementsByTagName('td')
+    // convert first three td to editable
+    for(var i = 0; i < siblingTd.length-1; i++){
+        siblingTd[i].contentEditable = true
+        siblingTd[i].classList.add('temp-update-class')
+    }
+    // also change onclick function
+    elem.setAttribute('onclick', `updateNow('${uniqueId}')`)
+    elem.innerHTML = 'Send'
+}
+
+// create updateNow function
+function updateNow(uniqueId){
+    var contentId = document.querySelectorAll('.temp-update-class')
+    // now create obj using same keys as used during sending
+    var obj = {
+        'name': contentId[0].textContent,
+        'address': contentId[1].textContent,
+        'phone': contentId[2].textContent,
+        'message': contentId[3].textContent
+    }
+    // create reference to the data first where data will update
+    // uniqueId will be the id of each message in db
+    var listRef = database.ref('messages/' + uniqueId)
+    // now provide updated data
+    listRef.update(obj)
+    // after update new data will rerender automatically
+    // same as during delete
+    alert("Data Updated");
+}
+
+</script>
+</body>
+</html>
